@@ -1,11 +1,12 @@
 package Service;
 
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.StringReader;
+import java.io.*;
 import java.net.URI;
 
 import javax.annotation.PostConstruct;
+import javax.xml.transform.Result;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
@@ -13,10 +14,7 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.avalon.framework.configuration.DefaultConfiguration;
 import org.apache.avalon.framework.configuration.DefaultConfigurationBuilder;
 import org.apache.avalon.framework.configuration.MutableConfiguration;
-import org.apache.fop.apps.Fop;
-import org.apache.fop.apps.FopFactory;
-import org.apache.fop.apps.FopFactoryBuilder;
-import org.apache.fop.apps.MimeConstants;
+import org.apache.fop.apps.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.ExceptionDepthComparator;
@@ -36,6 +34,9 @@ public class PdfGenerator {
     private static final String FOP_RESOURCES_PATH = "/templates/fop/";
     private static final String FOP_CONFIGURATION_RESOURCE_NAME = "fop_configuration.xml";
     private static final String FOP_CONFIGURATION_RESOURCE = FOP_RESOURCES_PATH + FOP_CONFIGURATION_RESOURCE_NAME;
+    private static final String XSLT_RESOURCES_PATH = "/templates/";
+    private static final String XSLT_CONFIGURATION_RESOURCE_NAME = "vatInvoice-bacs.xslt";
+    private static final String XSLT_CONFIGURATION_RESOURCE = XSLT_RESOURCES_PATH + XSLT_CONFIGURATION_RESOURCE_NAME;
     private static TransformerFactory TRANSFORMER_FACTORY;
     private FopFactory fopFactory;
 
@@ -78,6 +79,26 @@ public class PdfGenerator {
             LOG.error("Error while generating PDF from FO",e);
             throw new AuditReportExportServiceException(AuditErrorCode.INTERNAL_ERROR,"Could not generate PDF from XSL-FO");
         }
+    }
+
+    public byte[] generateFromXslt(String objectXml) {
+        final ByteArrayOutputStream pdf = new ByteArrayOutputStream();
+        try {
+            Resource resource = new ClassPathResource(XSLT_CONFIGURATION_RESOURCE);
+            final Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, pdf);
+            final Transformer transformer = TRANSFORMER_FACTORY.newTransformer(new StreamSource(resource.getInputStream()));
+
+            final Result result = new SAXResult(fop.getDefaultHandler());
+
+            transformer.transform(new StreamSource(new StringReader(objectXml)), result);
+        } catch (FOPException | TransformerException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+
+        LOG.debug("pdf: {}", pdf);
+        return pdf.toByteArray();
     }
 
 }

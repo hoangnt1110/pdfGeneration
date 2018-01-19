@@ -26,11 +26,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
 public class RestTestController {
-	
+
 	@Autowired
 	private PdfGenerator pdfGenerator;
 
-    @RequestMapping(method = GET, value = "/tulnTest", produces = "application/json")
+    @RequestMapping(method = GET, value = "/velocityPdf", produces = "application/json")
     public String getData(@RequestParam(value = "version", required = false) String version){
         System.out.println(version);
         return export();
@@ -75,9 +75,9 @@ public class RestTestController {
             throw new AuditReportExportServiceException(AuditErrorCode.INVALID_OUTPUT_FILE, String.format("Could not find/create file '%s'", auditReportCode));
         }
     }
-    
-    
-    
+
+
+
     private ResponseEntity<byte[]> createResponseEntity(String reportLocation,String reportCode, AuditReportExportFormat exportFormat) {
         try {
             HttpHeaders headers = new HttpHeaders();
@@ -90,6 +90,6 @@ public class RestTestController {
             throw new RuntimeException("Internal error while downloading audit report");
         }
     }
-    
-	
+
+
 }
