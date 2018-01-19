@@ -1,0 +1,100 @@
+                <fo:table
+                          font-family="TimesNewRoman" language="EN-US" start-indent="0pt">
+                    <fo:table-column column-number="1" column-width="402.4pt"/>
+                    <fo:table-column column-number="2" column-width="131.7pt"/>
+                    <table-body start-indent="0pt" end-indent="0pt">
+                        <fo:table-row>
+                            <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                                           padding-right="5.4pt" border-top-style="solid" border-top-color="black"
+                                           border-top-width="1pt" border-left-style="solid" border-left-color="black"
+                                           border-left-width="1pt" border-right-style="solid" border-right-color="black"
+                                           border-right-width="1pt" border-bottom-style="solid"
+                                           border-bottom-color="black" border-bottom-width="1pt"
+                                           number-columns-spanned="2" background-color="#F3F3F3" color="black">
+                                <block-container>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB" text-align="center">
+                                        <fo:inline font-weight="bold"><fo:leader leader-length="0pt"/>Observation:
+                                        </fo:inline>
+                                    </fo:block>
+                                </block-container>
+                            </fo:table-cell>
+                        </fo:table-row>
+                        #foreach( $finding in $findingsObservation )
+                        <fo:table-row>
+                            <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                                           padding-right="5.4pt" border-left-style="solid" border-left-color="black"
+                                           border-left-width="1pt" border-bottom-style="solid"
+                                           border-bottom-color="black" border-bottom-width="1pt"
+                                           border-top-style="solid" border-top-color="#FFFFFF" border-top-width="1pt"
+                                           border-right-style="solid" border-right-color="black"
+                                           border-right-width="1pt" background-color="white" color="black">
+                                <block-container>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold" language="EN-US">
+                                            $foreach.count. Issue title of observation:
+                                        </fo:inline>
+                                        <fo:inline>
+                                            #valueOrDefault($finding.IssueTitleText)
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:leader/>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold" language="EN-US">
+                                            Description of observation:
+                                        </fo:inline>
+                                        <fo:inline>
+                                            $finding.description
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:leader/>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold"><fo:leader leader-length="0pt"/>Local law and/ or ETI requirement:
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline><fo:leader leader-length="0pt"/>#valueOrDefault($finding.requirement)
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:leader/>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold"><fo:leader leader-length="0pt"/>Comments:
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline>#valueOrDefault($finding.comment)
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:leader/>
+                                    </fo:block>
+                                </block-container>
+                            </fo:table-cell>
+                            <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                                           padding-right="5.4pt" border-bottom-style="solid" border-bottom-color="black"
+                                           border-bottom-width="1pt" border-right-style="solid"
+                                           border-right-color="black" border-right-width="1pt" border-top-style="solid"
+                                           border-top-color="#FFFFFF" border-top-width="1pt" border-left-style="solid"
+                                           border-left-color="black" border-left-width="1pt" background-color="white"
+                                           color="black">
+                                <block-container>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold"><fo:leader leader-length="0pt"/>Objective evidence observed:
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline>
+                                            <fo:leader leader-length="0pt"/>#valueOrDefault($finding.objectiveEvidence)
+                                        </fo:inline>
+                                    </fo:block>
+                                </block-container>
+                            </fo:table-cell>
+                        </fo:table-row>
+                        #end
+                    </table-body>
+                </fo:table>

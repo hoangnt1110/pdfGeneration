@@ -1,0 +1,76 @@
+                <fo:table font-family="TimesNewRoman" language="EN-US" start-indent="0pt">
+                    <fo:table-column column-number="1" column-width="402.4pt"/>
+                    <fo:table-column column-number="2" column-width="131.7pt"/>
+                    <table-body start-indent="0pt" end-indent="0pt">
+                        <fo:table-row>
+                            <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                                           padding-right="5.4pt" border-top-style="solid" border-top-color="#008000"
+                                           border-top-width="2.25pt" border-left-style="solid"
+                                           border-left-color="#008000" border-left-width="2.25pt"
+                                           border-right-style="solid" border-right-color="#008000"
+                                           border-right-width="2.25pt" border-bottom-style="solid"
+                                           border-bottom-color="#008000" border-bottom-width="2.25pt"
+                                           number-columns-spanned="2" background-color="white" color="black">
+                                <block-container>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB" text-align="center">
+                                        <fo:inline font-weight="bold"><fo:leader leader-length="0pt"/>Good Examples observed:
+                                        </fo:inline>
+                                    </fo:block>
+                                </block-container>
+                            </fo:table-cell>
+                        </fo:table-row>
+                        #foreach($finding in $findingsGoodExample)
+                        <fo:table-row>
+                            <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                                           padding-right="5.4pt" border-left-style="solid" border-left-color="#008000"
+                                           border-left-width="2.25pt" border-bottom-style="solid"
+                                           border-bottom-color="#008000" border-bottom-width="2.25pt"
+                                           border-top-style="solid" border-top-color="#FFFFFF" border-top-width="2.25pt"
+                                           border-right-style="solid" border-right-color="#008000"
+                                           border-right-width="2.25pt" background-color="white" color="black">
+                                <block-container>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold" language="EN-US">
+                                            $velocityCount . Issue title of Good Example (GE):
+                                        </fo:inline>
+                                        <fo:inline>
+                                            <fo:leader leader-length="0pt"/>#valueOrDefault($finding.IssueTitleText)
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:leader/>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold" language="EN-US">
+                                            Description of Good Example (GE):
+                                        </fo:inline>
+                                        <fo:inline>
+                                            <fo:leader leader-length="0pt"/>#valueOrDefault($finding.Description)
+                                        </fo:inline>
+                                    </fo:block>
+                                </block-container>
+                            </fo:table-cell>
+                            <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                                           padding-right="5.4pt" border-bottom-style="solid"
+                                           border-bottom-color="#008000" border-bottom-width="2.25pt"
+                                           border-right-style="solid" border-right-color="#008000"
+                                           border-right-width="2.25pt" border-top-style="solid"
+                                           border-top-color="#FFFFFF" border-top-width="2.25pt"
+                                           border-left-style="solid" border-left-color="#008000"
+                                           border-left-width="2.25pt" background-color="white" color="black">
+                                <block-container>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold"><fo:leader leader-length="0pt"/>Objective evidence observed:
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline>
+                                            <fo:leader leader-length="0pt"/>#valueOrDefault($finding.ObjectiveEvidence)
+                                        </fo:inline>
+                                    </fo:block>
+                                </block-container>
+                            </fo:table-cell>
+                        </fo:table-row>
+                        #end
+                    </table-body>
+                </fo:table>

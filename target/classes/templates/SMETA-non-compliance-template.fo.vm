@@ -1,0 +1,119 @@
+        <fo:table font-family="TimesNewRoman" language="EN-US" start-indent="0pt">
+                    <fo:table-column column-number="1" column-width="403.65pt"/>
+                    <fo:table-column column-number="2" column-width="130.45pt"/>
+                    <table-body start-indent="0pt" end-indent="0pt">
+                        <fo:table-row>
+                            <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                                           padding-right="5.4pt" border-top-style="solid" border-top-color="#ED1556"
+                                           border-top-width="2.25pt" border-left-style="solid"
+                                           border-left-color="#ED1556" border-left-width="2.25pt"
+                                           border-right-style="solid" border-right-color="#ED1556"
+                                           border-right-width="2.25pt" border-bottom-style="solid"
+                                           border-bottom-color="#ED1556" border-bottom-width="2.25pt"
+                                           number-columns-spanned="2" background-color="white" color="black">
+                                <block-container>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB" text-align="center">
+                                        <fo:inline font-weight="bold"><fo:leader leader-length="0pt"/>Non Compliances
+                                        </fo:inline>
+                                    </fo:block>
+                                </block-container>
+                            </fo:table-cell>
+                        </fo:table-row>
+                        #foreach( $finding in $findingsNoncompliance )
+                            #set $border_style = "none"
+                            #if ($foreach.count == $findingsNoncompliance.size) set $border_style = "solid" #end
+                            #set($basecode = $unchecked)
+                            #set($locallaw = $unchecked)
+                            #set($noneCompliance = "bap")
+                            #foreach($areaOfNonConformity in $finding.areaOfNonConformity)
+                                #if($areaOfNonConformity == "ETI_BASE_CODE") #set($basecode = $checked) #end
+                                #if($areaOfNonConformity == "LOCAL_LAW") #set($locallaw = $checked) #end
+                            #end
+                        
+                        <fo:table-row height="172.6pt">
+                            <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                                           padding-right="5.4pt" border-left-style="solid" border-left-color="#ED1556"
+                                           border-left-width="2.25pt" border-bottom-style="solid"
+                                           border-bottom-color="#ED1556" border-bottom-width="2.25pt"
+                                           border-top-style="none" border-top-color="#FFFFFF" border-top-width="0pt"
+                                           border-right-style="solid" border-right-color="#ED1556"
+                                           border-right-width="2.25pt" background-color="white" color="black">
+                                <block-container>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold" language="EN-US">
+                                            $foreach.count. Issue title of non compliance:
+                                        </fo:inline>
+                                        <fo:inline>
+                                            <fo:leader leader-length="0pt"/>#valueOrDefault($finding.IssueTitleText)
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:leader/>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold" language="EN-US">
+                                            Description of non compliance:
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline> <fo:leader leader-length="0pt"/>$basecode NC against ETI/Additional Elements
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline><fo:leader leader-length="0pt"/>$locallaw NC against Local Law
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:leader/>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold"><fo:leader leader-length="0pt"/>Local law and/ or ETI requirement:
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline><fo:leader leader-length="0pt"/>#valueOrDefault($finding.requirement)
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:leader/>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold">Recommended corrective action:
+                                        </fo:inline>
+                                        #foreach( $correctiveAction in $finding.correctiveActions )
+                                                <fo:inline>
+                                                    $foreach.count: $correctiveAction.description
+                                                </fo:inline>
+                                        #end
+                                    </fo:block>
+                                </block-container>
+                            </fo:table-cell>
+                            <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                                           padding-right="5.4pt" border-bottom-style="solid"
+                                           border-bottom-color="#ED1556" border-bottom-width="2.25pt"
+                                           border-right-style="solid" border-right-color="#ED1556"
+                                           border-right-width="2.25pt" border-top-style="solid"
+                                           border-top-color="#FFFFFF" border-top-width="0pt"
+                                           border-left-style="solid" border-left-color="#ED1556"
+                                           border-left-width="2.25pt" background-color="white" color="black">
+                                <block-container>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-weight="bold"><fo:leader leader-length="0pt"/>Objective evidence observed:
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline font-style="italic" color="black" font-size="9pt" language="">
+                                            <fo:leader leader-length="0pt"/>(where relevant please add photo numbers)
+                                        </fo:inline>
+                                    </fo:block>
+                                    <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                                        <fo:inline>
+                                            <fo:leader leader-length="0pt"/>#valueOrDefault($finding.objectiveEvidence)
+                                        </fo:inline>
+                                    </fo:block>
+                                </block-container>
+                            </fo:table-cell>
+                        </fo:table-row>
+                        #end
+                    </table-body>
+                </fo:table>

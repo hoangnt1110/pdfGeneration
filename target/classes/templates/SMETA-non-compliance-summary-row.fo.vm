@@ -1,0 +1,110 @@
+#define( $checked )<fo:inline font-family="ZapfDingbats" font-size="12pt" border="1pt black">&#x2714;</fo:inline>#end
+#define( $unchecked )<fo:inline font-family="ZapfDingbats" font-size="14pt">&#x274F;</fo:inline>#end
+<fo:table-row keep-together.within-page="always">
+    <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                   padding-right="5.4pt" border-top-style="solid" border-top-color="black"
+                   border-top-width="0.5pt" border-bottom-style="solid"
+                   border-bottom-color="black" border-bottom-width="0.5pt"
+                   border-left-style="solid" border-left-color="black" border-left-width="0.5pt"
+                   border-right-style="solid" border-right-color="black"
+                   border-right-width="0.5pt" background-color="#F3F3F3" color="black">
+        <block-container>
+            <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                <fo:basic-link internal-destination="$sectionCode">
+                    <fo:inline text-decoration="underline" color="black"><fo:leader leader-length="0pt"/>$sectionName</fo:inline>
+                </fo:basic-link>
+            </fo:block>
+        </block-container>
+    </fo:table-cell>
+    <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                   padding-right="5.4pt" border-top-style="solid" border-top-color="black"
+                   border-top-width="0.5pt" border-bottom-style="solid"
+                   border-bottom-color="black" border-bottom-width="0.5pt"
+                   border-left-style="solid" border-left-color="black" border-left-width="0.5pt"
+                   border-right-style="solid" border-right-color="black"
+                   border-right-width="0.5pt" background-color="white" color="black">
+        <block-container text-align="center">
+            #if($etiBaseCode)
+                <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                    <fo:inline> <fo:leader leader-length="0pt"/>$checked</fo:inline>
+                </fo:block>
+            #else
+                <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                    <fo:inline><fo:leader leader-length="0pt"/>$unchecked</fo:inline>
+                </fo:block>
+            #end
+        </block-container>
+    </fo:table-cell>
+    <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                   padding-right="5.4pt" border-top-style="solid" border-top-color="black"
+                   border-top-width="0.5pt" border-bottom-style="solid"
+                   border-bottom-color="black" border-bottom-width="0.5pt"
+                   border-left-style="solid" border-left-color="black" border-left-width="0.5pt"
+                   border-right-style="solid" border-right-color="black"
+                   border-right-width="0.5pt" background-color="white" color="black">
+        <block-container text-align="center">
+            #if($localLaw)
+                <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                    <fo:inline> <fo:leader leader-length="0pt"/>$checked</fo:inline>
+                </fo:block>
+            #else
+                <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                    <fo:inline><fo:leader leader-length="0pt"/>$unchecked</fo:inline>
+                </fo:block>
+            #end
+        </block-container>
+    </fo:table-cell>
+    <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                   padding-right="5.4pt" border-top-style="solid" border-top-color="black"
+                   border-top-width="0.5pt" border-bottom-style="solid"
+                   border-bottom-color="black" border-bottom-width="0.5pt"
+                   border-left-style="solid" border-left-color="black" border-left-width="0.5pt"
+                   border-right-style="solid" border-right-color="black"
+                   border-right-width="0.5pt" background-color="white" color="black">
+        <block-container>
+            <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                <fo:inline> <fo:leader leader-length="0pt"/></fo:inline>
+            </fo:block>
+        </block-container>
+    </fo:table-cell>
+    <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                   padding-right="5.4pt" border-top-style="solid" border-top-color="black"
+                   border-top-width="0.5pt" border-bottom-style="solid"
+                   border-bottom-color="black" border-bottom-width="0.5pt"
+                   border-left-style="solid" border-left-color="black" border-left-width="0.5pt"
+                   border-right-style="solid" border-right-color="black"
+                   border-right-width="0.5pt" background-color="white" color="black">
+        <block-container text-align="center">
+                <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                    <fo:inline> <fo:leader leader-length="0pt"/>$nonCompliancesCount</fo:inline>
+                </fo:block>
+        </block-container>
+    </fo:table-cell>
+    <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                   padding-right="5.4pt" border-top-style="solid" border-top-color="black"
+                   border-top-width="0.5pt" border-bottom-style="solid"
+                   border-bottom-color="black" border-bottom-width="0.5pt"
+                   border-left-style="solid" border-left-color="black" border-left-width="0.5pt"
+                   border-right-style="solid" border-right-color="black"
+                   border-right-width="0.5pt" background-color="white" color="black">
+        <block-container text-align="center">
+            <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                <fo:inline> <fo:leader leader-length="0pt"/>$observationsCount</fo:inline>
+            </fo:block>
+        </block-container>
+    </fo:table-cell>
+    <fo:table-cell padding-top="5.4pt" padding-left="5.4pt" padding-bottom="5.4pt"
+                   padding-right="5.4pt" border-top-style="solid" border-top-color="black"
+                   border-top-width="0.5pt" border-right-style="solid"
+                   border-right-color="black" border-right-width="0.5pt"
+                   border-bottom-style="solid" border-bottom-color="black"
+                   border-bottom-width="0.5pt" border-left-style="solid"
+                   border-left-color="black" border-left-width="0.5pt" background-color="white"
+                   color="black">
+        <block-container text-align="center">
+            <fo:block font-family="Arial" color="#000000" language="EN-GB">
+                <fo:inline> <fo:leader leader-length="0pt"/>$goodExamplesCount</fo:inline>
+            </fo:block>
+        </block-container>
+    </fo:table-cell>
+</fo:table-row>
