@@ -29,7 +29,7 @@
 
                     <fo:block font-size="14pt"
                               text-align="center"
-                              space-after="10pt" text-decoration="underline">Payment Notice
+                              space-after="10pt" text-decoration="underline">付款通知书
                     </fo:block>
                     <fo:block>
                         Company Details
@@ -99,10 +99,8 @@
                     </fo:table>
 
                     <fo:block linefeed-treatment="preserve">
-                        Please give this reference number <fo:inline><xsl:value-of select="organisationName"/></fo:inline> to the bank when you make your payment and ensure
-                        they include it as your reference. If your company needs an invoice, this is the only way Sedex
-                        can identify your payment.&#xA;
-                        General information for the Tax Invoice. Anything marked * is compulsory.
+                        请在进行转账时向银行备注您的支付参考编号 <fo:inline><xsl:value-of select="organisationName"/></fo:inline> ! 若贵司需要发票，此参考编号是Sedex获取贵司开票资料的唯一途径，请妥善保存。&#xA;
+                        增值税普通发票开票信息（标记*号为必填项）
                     </fo:block>
                     <fo:table width="100%"
                               margin="5pt 0 10pt 0">
@@ -112,7 +110,7 @@
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        Company Name (in Chinese) to be shown on the Chinese Tax Invoice *
+                                        发票抬头上的公司名称（必须为中文）*
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
@@ -124,7 +122,7 @@
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        Taxpayer Identification Number or Uniform Social Credit Code
+                                        纳税人识别号
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
@@ -136,7 +134,7 @@
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        Company Address*
+                                        公司地址*
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
@@ -148,7 +146,7 @@
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        Company Phone Number*
+                                        公司电话*
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
@@ -160,7 +158,7 @@
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        Bank Name*
+                                        开户行名称*
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
@@ -172,7 +170,7 @@
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        Bank Account Number*
+                                        开户行帐号*
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
@@ -184,7 +182,7 @@
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        Name of Actual Payer as it appears on the bank slip* (very important, please ensure this is correct)
+                                        银行水单所显示的付款人/公司名称*  （非常重要，请务必正确填写）
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
@@ -196,7 +194,7 @@
                         </fo:table-body>
                     </fo:table>
 
-                    <fo:block linefeed-treatment="preserve">&#xA;Invoice Delivery Information</fo:block>
+                    <fo:block linefeed-treatment="preserve">&#xA;发票快递信息</fo:block>
                     <fo:table width="100%"
                               margin="5pt 0 10pt 0">
                         <fo:table-column column-width="50%"></fo:table-column>
@@ -205,7 +203,7 @@
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        Express Delivery Address (Mainland China only)*
+                                        快递寄送地址（仅限大陆地区）*
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
@@ -217,7 +215,7 @@
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        Name of Contact Person*
+                                        收件人姓名*
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
@@ -229,7 +227,7 @@
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        Phone number of Contact Person*
+                                        收件人电话(手机）*
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
@@ -242,28 +240,22 @@
                     </fo:table>
 
                     <fo:block linefeed-treatment="preserve">
-                    Please use the following information to make your payment to the following bank account:&#xA;
-                    Sedex China Office – Sedex Information Exchange (Shanghai) Limited – Sole Bank Account：
-                    Beneficiary's Name: Sedex Information Exchange (Shanghai) Limited
-                    Beneficiary's Bank Name: Bank of China Shanghai Branch Hua Shan Road Sub-Branch
-                    Beneficiary's Bank Account: 452062240835&#xA;
-                    Beneficiary's Company Address: Room 701-703, Office Block of Shanghai International Equatorial
-                    Hotel, 65 West Yan An Road, Shanghai
-                    Beneficiary's Tax Payers code: 91310000596413673N
-                    <fo:inline font-weight="bold">&#xA;What will happen after payment:</fo:inline>
-                    Please bear with us after you manage to credit the account (You don’t have to send anything to
-                    us by email), Sedex will activate your account after receiving your amount in three days. In the
-                    meantime, Sedex Advance will automatically send out the confirmation letter. If your account
-                    fails to be activated within 5 working days after the payment, please use your login email to
-                    send a mail to China Help Desk (helpdeskchina@sedexglobal.com) with your bank slip. (Make sure
-                    it includes payer, payment amount and date)
+                    请根据下列的信息完成银行付款到以下地址与账户： &#xA;
+                    收款人名称：         上海瑟德柯斯管理咨询有限公司
+                    收款人开户银行名称： 中国银行上海市华山路支行
+                    收款人开户银行账号： 452062240835
+                    收款人开户银行地址： 上海市延安西路65号
+                    收款人公司地址：     上海市延安西路65号 贵都商务楼 701至703室
+                    收款人公司纳税人代码: 91310000596413673N
+                    <fo:inline font-weight="bold">&#xA;付款成功后会发生什么：</fo:inline>
+                    完成付款后请耐心等待（您无需再进行任何操作或发送任何邮件），Sedex会在确认收到贵司款项后的三个工作日内激活贵司账号，届时Sedex Advance系统会自动发出确认邮件。若贵司在完成付款后的5个工作日后账号依旧没有激活，请使用Sedex注册邮箱将贵司转账成功的银行付款凭证（确保其中包含付款人，付款金额以及日期）以邮件的形式发送给到Sedex帮助中心以便我们进行核查。
                     </fo:block>
 
-                    <fo:block linefeed-treatment="preserve"><fo:inline font-weight="bold">&#xA;Important Notice:</fo:inline>
-                    1. The invoice total should be the total amount received by Sedex after all bank charges have been deducted.
-                    2. The invoice information has been submitted successfully. If you want to make any changes, please contact the Sedex Contact Centre.
-                    3. Should you still not have received the invoice more than 15 working days after your account is activated, please contact Sedex Contact Centre immediately.
-                    4. Invoice courier service is only available in mainland. (except Hong Kong, Macau and Taiwan)
+                    <fo:block linefeed-treatment="preserve"><fo:inline font-weight="bold">&#xA;重要通知：</fo:inline>
+                    1.	如通过非大陆地区付款，因跨境转账产生的全部手续费都由付款方支付。请务必确保到账金额足够。如到账金额不足，需补足费用，Sedex方可为您处理账户。
+                    2.	开票信息已成功提交。如需更改，请联系中国帮助中心。
+                    3.	帐号激活后，超过15个工作日还未收到发票，请及时联系我们查询发票快递信息。
+                    4.	发票的快递服务仅支持中国大陆地区。（不含港，澳，台地区）
                     </fo:block>
                 </fo:flow>
             </fo:page-sequence>

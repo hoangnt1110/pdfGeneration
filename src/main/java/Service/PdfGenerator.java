@@ -35,6 +35,7 @@ public class PdfGenerator {
     private static final String FOP_CONFIGURATION_RESOURCE_NAME = "fop_configuration.xml";
     private static final String FOP_CONFIGURATION_RESOURCE = FOP_RESOURCES_PATH + FOP_CONFIGURATION_RESOURCE_NAME;
     private static final String XSLT_RESOURCES_PATH = "/templates/";
+    private static final String XSLT_CONFIGURATION_RESOURCE_GENERIC_NAME = "vatInvoice-bacs";
     private static final String XSLT_CONFIGURATION_RESOURCE_NAME = "vatInvoice-bacs.xslt";
     private static final String XSLT_CONFIGURATION_RESOURCE = XSLT_RESOURCES_PATH + XSLT_CONFIGURATION_RESOURCE_NAME;
     private static TransformerFactory TRANSFORMER_FACTORY;
@@ -85,6 +86,27 @@ public class PdfGenerator {
         final ByteArrayOutputStream pdf = new ByteArrayOutputStream();
         try {
             Resource resource = new ClassPathResource(XSLT_CONFIGURATION_RESOURCE);
+            final Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, pdf);
+            final Transformer transformer = TRANSFORMER_FACTORY.newTransformer(new StreamSource(resource.getInputStream()));
+
+            final Result result = new SAXResult(fop.getDefaultHandler());
+
+            transformer.transform(new StreamSource(new StringReader(objectXml)), result);
+        } catch (FOPException | TransformerException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+
+        LOG.debug("pdf: {}", pdf);
+        return pdf.toByteArray();
+    }
+
+    public byte[] generateFromXslt(String objectXml, String language, String type) {
+        final ByteArrayOutputStream pdf = new ByteArrayOutputStream();
+        try {
+            String resourceName = XSLT_RESOURCES_PATH + XSLT_CONFIGURATION_RESOURCE_GENERIC_NAME + "-" + language + "-" + type + ".xslt";
+            Resource resource = new ClassPathResource(resourceName);
             final Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, pdf);
             final Transformer transformer = TRANSFORMER_FACTORY.newTransformer(new StreamSource(resource.getInputStream()));
 

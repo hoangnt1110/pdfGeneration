@@ -35,6 +35,16 @@ public class PdfJaxbTestController {
         return savePdfToReportOutput(reportAsPdf, "test");
     }
 
+    @RequestMapping(method = GET, value = "/jaxbYesChinesePdf", produces = "application/json")
+    public String export(@RequestParam(value = "version", required = false) String version,
+                         @RequestParam(value = "language", required = false) String language,
+                         @RequestParam(value = "type", required = false) String type){
+        System.out.println(version);
+        byte[] reportAsPdf = pdfGenerator.generateFromXslt(marshalToString(new InvoiceInfo()), language, type);
+
+        return savePdfToReportOutput(reportAsPdf, "test");
+    }
+
     private String marshalToString(final InvoiceInfo invoiceInfo) {
         final StringWriter xml = new StringWriter();
         try {
