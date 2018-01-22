@@ -6,27 +6,26 @@
 //
 
 
-package RestController;
+package entity;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import java.math.BigInteger;
 
 
 /**
- * <p>Java class for subscriptionDetails complex type.
+ * <p>Java class for invoiceDetails complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="subscriptionDetails"&gt;
+ * &lt;complexType name="invoiceDetails"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;all&gt;
- *         &lt;element name="sites" type="{http://www.w3.org/2001/XMLSchema}integer"/&gt;
- *         &lt;element name="numberOfYears" type="{http://www.w3.org/2001/XMLSchema}integer"/&gt;
+ *         &lt;element name="invoiceNumber" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="invoiceDate" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/all&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,62 +35,62 @@ import java.math.BigInteger;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "subscriptionDetails", propOrder = {
+@XmlType(name = "invoiceDetails", propOrder = {
 
 })
-public class SubscriptionDetails {
+public class InvoiceDetails {
 
     @XmlElement(required = true)
-    protected BigInteger sites;
+    protected String invoiceNumber;
     @XmlElement(required = true)
-    protected BigInteger numberOfYears;
+    protected String invoiceDate;
 
     /**
-     * Gets the value of the sites property.
+     * Gets the value of the invoiceNumber property.
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public BigInteger getSites() {
-        return sites;
+    public String getInvoiceNumber() {
+        return invoiceNumber;
     }
 
     /**
-     * Sets the value of the sites property.
+     * Sets the value of the invoiceNumber property.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public void setSites(BigInteger value) {
-        this.sites = value;
+    public void setInvoiceNumber(String value) {
+        this.invoiceNumber = value;
     }
 
     /**
-     * Gets the value of the numberOfYears property.
+     * Gets the value of the invoiceDate property.
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public BigInteger getNumberOfYears() {
-        return numberOfYears;
+    public String getInvoiceDate() {
+        return invoiceDate;
     }
 
     /**
-     * Sets the value of the numberOfYears property.
+     * Sets the value of the invoiceDate property.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link String }
      *     
      */
-    public void setNumberOfYears(BigInteger value) {
-        this.numberOfYears = value;
+    public void setInvoiceDate(String value) {
+        this.invoiceDate = value;
     }
 
 }

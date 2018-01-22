@@ -6,26 +6,27 @@
 //
 
 
-package RestController;
+package entity;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.math.BigDecimal;
 
 
 /**
- * <p>Java class for invoiceDetails complex type.
+ * <p>Java class for paymentDetails complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="invoiceDetails"&gt;
+ * &lt;complexType name="paymentDetails"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;all&gt;
- *         &lt;element name="invoiceNumber" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="invoiceDate" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="currencyCode" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="amount" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
  *       &lt;/all&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,62 +36,62 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "invoiceDetails", propOrder = {
+@XmlType(name = "paymentDetails", propOrder = {
 
 })
-public class InvoiceDetails {
+public class PaymentDetails {
 
     @XmlElement(required = true)
-    protected String invoiceNumber;
+    protected String currencyCode;
     @XmlElement(required = true)
-    protected String invoiceDate;
+    protected BigDecimal amount;
 
     /**
-     * Gets the value of the invoiceNumber property.
+     * Gets the value of the currencyCode property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getInvoiceNumber() {
-        return invoiceNumber;
+    public String getCurrencyCode() {
+        return currencyCode;
     }
 
     /**
-     * Sets the value of the invoiceNumber property.
+     * Sets the value of the currencyCode property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setInvoiceNumber(String value) {
-        this.invoiceNumber = value;
+    public void setCurrencyCode(String value) {
+        this.currencyCode = value;
     }
 
     /**
-     * Gets the value of the invoiceDate property.
+     * Gets the value of the amount property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link BigDecimal }
      *     
      */
-    public String getInvoiceDate() {
-        return invoiceDate;
+    public BigDecimal getAmount() {
+        return amount;
     }
 
     /**
-     * Sets the value of the invoiceDate property.
+     * Sets the value of the amount property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link BigDecimal }
      *     
      */
-    public void setInvoiceDate(String value) {
-        this.invoiceDate = value;
+    public void setAmount(BigDecimal value) {
+        this.amount = value;
     }
 
 }

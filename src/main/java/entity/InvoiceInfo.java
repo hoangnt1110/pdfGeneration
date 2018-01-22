@@ -6,7 +6,7 @@
 //
 
 
-package RestController;
+package entity;
 
 import javax.xml.bind.annotation.*;
 

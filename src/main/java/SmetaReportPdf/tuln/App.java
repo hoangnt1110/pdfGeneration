@@ -1,6 +1,6 @@
 package SmetaReportPdf.tuln;
 
-import RestController.ObjectFactory;
+import entity.ObjectFactory;
 import RestController.RestTestController;
 import Service.PdfGenerator;
 import org.springframework.boot.SpringApplication;

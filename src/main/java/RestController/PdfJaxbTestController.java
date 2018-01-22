@@ -3,6 +3,7 @@ package RestController;
 import Constant.AuditErrorCode;
 import Exception.AuditReportExportServiceException;
 import Service.PdfGenerator;
+import entity.InvoiceInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.oxm.Marshaller;
 import org.springframework.web.bind.annotation.RequestMapping;

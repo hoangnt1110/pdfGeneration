@@ -6,27 +6,27 @@
 //
 
 
-package RestController;
+package entity;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import java.math.BigDecimal;
+import java.math.BigInteger;
 
 
 /**
- * <p>Java class for paymentDetails complex type.
+ * <p>Java class for subscriptionDetails complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="paymentDetails"&gt;
+ * &lt;complexType name="subscriptionDetails"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;all&gt;
- *         &lt;element name="currencyCode" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="amount" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
+ *         &lt;element name="sites" type="{http://www.w3.org/2001/XMLSchema}integer"/&gt;
+ *         &lt;element name="numberOfYears" type="{http://www.w3.org/2001/XMLSchema}integer"/&gt;
  *       &lt;/all&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,62 +36,62 @@ import java.math.BigDecimal;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "paymentDetails", propOrder = {
+@XmlType(name = "subscriptionDetails", propOrder = {
 
 })
-public class PaymentDetails {
+public class SubscriptionDetails {
 
     @XmlElement(required = true)
-    protected String currencyCode;
+    protected BigInteger sites;
     @XmlElement(required = true)
-    protected BigDecimal amount;
+    protected BigInteger numberOfYears;
 
     /**
-     * Gets the value of the currencyCode property.
+     * Gets the value of the sites property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link BigInteger }
      *     
      */
-    public String getCurrencyCode() {
-        return currencyCode;
+    public BigInteger getSites() {
+        return sites;
     }
 
     /**
-     * Sets the value of the currencyCode property.
+     * Sets the value of the sites property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link BigInteger }
      *     
      */
-    public void setCurrencyCode(String value) {
-        this.currencyCode = value;
+    public void setSites(BigInteger value) {
+        this.sites = value;
     }
 
     /**
-     * Gets the value of the amount property.
+     * Gets the value of the numberOfYears property.
      * 
      * @return
      *     possible object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public BigDecimal getAmount() {
-        return amount;
+    public BigInteger getNumberOfYears() {
+        return numberOfYears;
     }
 
     /**
-     * Sets the value of the amount property.
+     * Sets the value of the numberOfYears property.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigDecimal }
+     *     {@link BigInteger }
      *     
      */
-    public void setAmount(BigDecimal value) {
-        this.amount = value;
+    public void setNumberOfYears(BigInteger value) {
+        this.numberOfYears = value;
     }
 
 }
