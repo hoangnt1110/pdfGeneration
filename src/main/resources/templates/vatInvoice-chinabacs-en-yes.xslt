@@ -9,11 +9,11 @@
         <xsl:attribute name="border">solid 1px black</xsl:attribute>
         <xsl:attribute name="margin">5pt</xsl:attribute>
     </xsl:attribute-set>
-    <xsl:template match="/invoiceInfo">
+    <xsl:template match="/paymentInfo">
         <fo:root>
             <fo:layout-master-set>
                 <fo:simple-page-master master-name="A4-portrait" page-height="29.7cm" page-width="21.0cm" margin="2cm">
-                    <fo:region-body margin="90pt 0 0 0"/>
+                    <fo:region-body margin="5em 0 0 0"/>
                     <fo:region-before/>
                     <fo:region-after/>
                 </fo:simple-page-master>
@@ -28,16 +28,15 @@
                 <fo:flow flow-name="xsl-region-body" font-size="10pt">
 
                     <fo:block font-size="14pt"
-                              text-align="center"
-                              space-after="10pt" text-decoration="underline">Payment Notice
+                              text-align="center" text-decoration="underline">Payment Notice
                     </fo:block>
                     <fo:block>
                         Company Details
                     </fo:block>
                     <fo:table width="100%"
-                              margin="5pt 0 10pt 0pt">
-                        <fo:table-column column-width="50%"></fo:table-column>
-                        <fo:table-column column-width="50%"></fo:table-column>
+                              margin="0pt 0 10pt 0pt">
+                        <fo:table-column column-width="52%"></fo:table-column>
+                        <fo:table-column column-width="48%"></fo:table-column>
                         <fo:table-header>
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
@@ -46,7 +45,7 @@
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder">
-                                    <fo:block>
+                                    <fo:block text-decoration="underline">
                                         Company reference
                                     </fo:block>
                                 </fo:table-cell>
@@ -56,12 +55,12 @@
                             <fo:table-row>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="organisationDetails/organisationName"/>
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="organisationDetails/organisationCode"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -69,13 +68,13 @@
 
                     </fo:table>
 
-                    <fo:block>
+                    <fo:block text-decoration="underline">
                         Payment Details
                     </fo:block>
                     <fo:table width="100%"
-                              margin="5pt 0 10pt 0">
-                        <fo:table-column column-width="50%"></fo:table-column>
-                        <fo:table-column column-width="50%"></fo:table-column>
+                              margin="0pt 0 10pt 0">
+                        <fo:table-column column-width="52%"></fo:table-column>
+                        <fo:table-column column-width="48%"></fo:table-column>
                         <fo:table-header>
                             <fo:table-row>
                                 <fo:table-cell background-color="#5b9bd5" xsl:use-attribute-sets="myBorder"><fo:block>Payment reference</fo:block></fo:table-cell>
@@ -86,12 +85,12 @@
                             <fo:table-row>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaPaymentDetails/paymentCode"/>
                                     </fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaPaymentDetails/amount"/><xsl:value-of select="chinaPaymentDetails/currencyCode"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -99,13 +98,11 @@
                     </fo:table>
 
                     <fo:block linefeed-treatment="preserve">
-                        Please give this reference number <fo:inline><xsl:value-of select="organisationName"/></fo:inline> to the bank when you make your payment and ensure
-                        they include it as your reference. If your company needs an invoice, this is the only way Sedex
-                        can identify your payment.&#xA;
+                        Please give this reference number <fo:inline><xsl:value-of select="chinaPaymentDetails/paymentCode"/></fo:inline> to the bank when you make your payment and ensure they include it as your reference. If your company needs an invoice, this is the only way Sedex can identify your payment.&#xA;
                         General information for the Tax Invoice. Anything marked * is compulsory.
                     </fo:block>
                     <fo:table width="100%"
-                              margin="5pt 0 10pt 0">
+                              margin="0pt 0 10pt 0">
                         <fo:table-column column-width="50%"></fo:table-column>
                         <fo:table-column column-width="50%"></fo:table-column>
                         <fo:table-body>
@@ -117,7 +114,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaInvoiceDetails/companyName"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -129,7 +126,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaInvoiceDetails/taxPayerIdentification"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -141,7 +138,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaInvoiceDetails/companyAddress"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -153,7 +150,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaInvoiceDetails/companyPhoneNumber"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -165,7 +162,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaInvoiceDetails/bankName"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -177,7 +174,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaInvoiceDetails/bankAccountNumber"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -189,7 +186,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaPaymentDetails/actualPayer"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -198,7 +195,7 @@
 
                     <fo:block linefeed-treatment="preserve">&#xA;Invoice Delivery Information</fo:block>
                     <fo:table width="100%"
-                              margin="5pt 0 10pt 0">
+                              margin="0pt 0 10pt 0">
                         <fo:table-column column-width="50%"></fo:table-column>
                         <fo:table-column column-width="50%"></fo:table-column>
                         <fo:table-body>
@@ -210,7 +207,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaInvoiceDetails/deliveryAddress"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -222,7 +219,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaInvoiceDetails/contactName"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -234,7 +231,7 @@
                                 </fo:table-cell>
                                 <fo:table-cell xsl:use-attribute-sets="myBorder">
                                     <fo:block>
-                                        <xsl:value-of select="organisationName"/>
+                                        <xsl:value-of select="chinaInvoiceDetails/contactPhoneNumber"/>
                                     </fo:block>
                                 </fo:table-cell>
                             </fo:table-row>
@@ -243,10 +240,10 @@
 
                     <fo:block linefeed-treatment="preserve">
                     Please use the following information to make your payment to the following bank account:&#xA;
-                    Sedex China Office – Sedex Information Exchange (Shanghai) Limited – Sole Bank Account：
+                    Sedex China Office – Sedex Information Exchange (Shanghai) Limited – Sole Bank Account:
                     Beneficiary's Name: Sedex Information Exchange (Shanghai) Limited
                     Beneficiary's Bank Name: Bank of China Shanghai Branch Hua Shan Road Sub-Branch
-                    Beneficiary's Bank Account: 452062240835&#xA;
+                    Beneficiary's Bank Account: 452062240835
                     Beneficiary's Company Address: Room 701-703, Office Block of Shanghai International Equatorial
                     Hotel, 65 West Yan An Road, Shanghai
                     Beneficiary's Tax Payers code: 91310000596413673N

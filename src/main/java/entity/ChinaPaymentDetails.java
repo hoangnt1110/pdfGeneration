@@ -36,15 +36,35 @@ import java.math.BigDecimal;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "paymentDetails", propOrder = {
+@XmlType(name = "chinaPaymentDetails", propOrder = {
 
 })
-public class PaymentDetails {
+public class ChinaPaymentDetails {
 
+    @XmlElement(required = true)
+    protected String paymentCode;
+    @XmlElement(required = true)
+    protected String actualPayer;
     @XmlElement(required = true)
     protected String currencyCode;
     @XmlElement(required = true)
     protected BigDecimal amount;
+
+    public String getPaymentCode() {
+        return paymentCode;
+    }
+
+    public void setPaymentCode(String paymentCode) {
+        this.paymentCode = paymentCode;
+    }
+
+    public String getActualPayer() {
+        return actualPayer;
+    }
+
+    public void setActualPayer(String actualPayer) {
+        this.actualPayer = actualPayer;
+    }
 
     /**
      * Gets the value of the currencyCode property.

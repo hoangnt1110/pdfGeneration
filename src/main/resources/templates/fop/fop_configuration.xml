@@ -77,6 +77,15 @@ the location of this file.
                     <font-triplet name="SimSun" style="normal" weight="normal"/>
                 </font>
 
+                <font kerning="yes" embed-url="../fonts/arial/simsunb.ttf" embedding-mode="subset">
+                    <font-triplet name="SimSun" style="normal" weight="bold"/>
+                </font>
+
+                <font kerning="yes" embed-url="../fonts/arial/wqy-microhei.ttc" embedding-mode="subset" sub-font="WenQuanYi Micro Hei">
+                    <font-triplet name="WenQuanYi Micro Hei" style="normal" weight="normal"/>
+                    <font-triplet name="WenQuanYi Micro Hei b" style="normal" weight="bold"/>
+                </font>
+
                 <!-- Times Roman -->
                 <font>
                     <afp-font name="Times Roman" type="raster" codepage="T1V10500" encoding="Cp500">

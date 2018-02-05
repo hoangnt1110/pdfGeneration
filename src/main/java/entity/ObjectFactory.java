@@ -45,11 +45,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PaymentDetails }
+     * Create an instance of {@link ChinaPaymentDetails }
      * 
      */
-    public PaymentDetails createPaymentDetails() {
-        return new PaymentDetails();
+    public ChinaPaymentDetails createPaymentDetails() {
+        return new ChinaPaymentDetails();
     }
 
     /**
@@ -69,11 +69,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InvoiceDetails }
+     * Create an instance of {@link ChinaInvoiceDetails }
      * 
      */
-    public InvoiceDetails createInvoiceDetails() {
-        return new InvoiceDetails();
+    public ChinaInvoiceDetails createInvoiceDetails() {
+        return new ChinaInvoiceDetails();
     }
 
 }

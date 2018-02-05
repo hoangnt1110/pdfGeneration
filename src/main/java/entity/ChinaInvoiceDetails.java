@@ -14,9 +14,9 @@ import javax.xml.bind.annotation.*;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -37,18 +37,18 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
 
 })
-@XmlRootElement(name = "chineseInvoiceInfo")
-public class InvoiceInfo {
+@XmlRootElement(name = "chinaInvoiceDetails")
+public class ChinaInvoiceDetails {
 
     @XmlElement(required = true)
-    protected String organisationName;
+    protected String companyName;
     @XmlElement(required = true)
     protected String taxPayerIdentification;
     @XmlElement(required = true)
@@ -66,12 +66,12 @@ public class InvoiceInfo {
     @XmlElement(required = true)
     protected String contactPhoneNumber;
 
-    public String getOrganisationName() {
-        return organisationName;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setOrganisationName(String organisationName) {
-        this.organisationName = organisationName;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public String getTaxPayerIdentification() {

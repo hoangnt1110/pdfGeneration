@@ -35,7 +35,7 @@ public class PdfGenerator {
     private static final String FOP_CONFIGURATION_RESOURCE_NAME = "fop_configuration.xml";
     private static final String FOP_CONFIGURATION_RESOURCE = FOP_RESOURCES_PATH + FOP_CONFIGURATION_RESOURCE_NAME;
     private static final String XSLT_RESOURCES_PATH = "/templates/";
-    private static final String XSLT_CONFIGURATION_RESOURCE_GENERIC_NAME = "vatInvoice-bacs";
+    private static final String XSLT_CONFIGURATION_RESOURCE_GENERIC_NAME = "vatInvoice-chinabacs";
     private static final String XSLT_CONFIGURATION_RESOURCE_NAME = "vatInvoice-bacs.xslt";
     private static final String XSLT_CONFIGURATION_RESOURCE = XSLT_RESOURCES_PATH + XSLT_CONFIGURATION_RESOURCE_NAME;
     private static TransformerFactory TRANSFORMER_FACTORY;
